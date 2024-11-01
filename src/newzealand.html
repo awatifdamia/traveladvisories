@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather in Japan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap">
+</head>
+<body id="newzealand-main">
+    <header>
+        <div class="header-container">
+            <div class="logo-weather-container">
+                <img src="./images/cloud.png" class="logo" alt="Logo">
+                <span class="weather-text">WWanderlight</span>
+            </div>
+            <div class="button-container">
+                <button id="home-button" class="nav-button"><strong>Home</strong></button>
+                <button id="itinerary-button" class="nav-button" onclick="location.href='itinerary.html';"><strong>Itinerary</strong></button>
+              </div>
+        </div>
+    </header>
+    <main>
+        <div id="weather-card">
+            <div id="weather-info">
+                    <!-- Weather data will be inserted here by JavaScript -->
+            </div>
+        </div>
+        <div id="clothingModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <img id="modal-image" src="" alt="Clothing Image">
+                <p id="modal-description"></p>
+            </div>
+        </div>
+          <div id="places-to-visit">
+            <h3>Places to Visit in New Zealand</h3>
+            <div class="places-container">
+                <div class="place-item">
+                    <img src="./images/fiordland.jpeg" alt="Fiordland National Park" class="place-image">
+                    <p class="place-description">Fiordland National Park: A breathtaking region known for its stunning fjords, including Milford Sound.</p>
+                </div>
+                <div class="place-item">
+                    <img src="./images/rotorua.jpg" alt="Rotorua" class="place-image">
+                    <p class="place-description">Rotorua: Famous for its geothermal activity and Maori culture, with hot springs and geysers.</p>
+                </div>
+                <div class="place-item">
+                    <img src="./images/queenstown.jpg" alt="Queenstown" class="place-image">
+                    <p class="place-description">Queenstown: Known as the adventure capital of New Zealand, offering stunning landscapes and thrilling activities.</p>
+                </div>
+            </div>
+        </div>        
+        <button class="back-button" onclick="goBackToHome()">Back to Home</button>
+    </section>
+    </main>
+
+    <script src="weather.js" defer></script>
+</body>
+</html>

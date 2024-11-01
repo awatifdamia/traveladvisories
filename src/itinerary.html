@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Itinerary</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<main>
+<body id="itinerary">
+  <header>
+    <div class="header-container">
+      <div class="logo-weather-container">
+        <img src="./images/cloud.png" class="logo" alt="Logo">
+        <span class="weather-text">Wanderlight</span>
+      </div>
+      <div class="button-container">
+        <button id="home-button" class="nav-button"><strong>Home</strong></button>
+        <button id="itinerary-button" class="nav-button" onclick="location.href='itinerary.html';"><strong>Itinerary</strong></button>
+      </div>
+    </div>
+  </header> 
+
+  <div class="mainWrapper">
+    <h1>My Itinerary Plan</h1>
+    
+    <ul id="fileList"></ul>  <!-- File list display -->
+
+    <form>
+      <div class="form-group">
+        <label for="title">Itinerary Title</label>
+        <input id="title" type="text" class="form-control" placeholder="Enter itinerary title">
+      </div>
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input id="date" type="date" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="time">Time</label>
+        <input id="time" type="time" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="form-control" rows="3" placeholder="Enter a description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="activities">Activities</label>
+        <textarea id="activities" class="form-control" rows="5" placeholder="List your activities here"></textarea>
+      </div>
+    </form>
+    
+    <div class="action-button-container">
+      <button id="btnCreateEntry" class="action-button">Create Entry</button>
+      <button id="btnReadEntry" class="action-button">Read Entry</button>
+      <button id="btnDeleteEntry" class="action-button">Delete Entry</button>
+      <button id="btnUpdateEntry" class="action-button">Update Entry</button>
+    </div>
+  </div>
+  
+  <ul id="savedEntriesList"></ul>
+  
+  <div id="fileView">
+    <h3>File Content:</h3>
+    <pre id="fileContentDisplay"></pre>
+  </div>
+
+  <script src="itinerary.js"></script>
+</main>
+</body>
+</html>

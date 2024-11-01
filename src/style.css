@@ -1,0 +1,582 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* General Typography and Background Settings */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Ensure body takes full height */
+  background-color: #f5f5f5; /* Default background for non-index pages */
+  box-sizing: border-box;
+}
+
+main {
+  padding-bottom: 50px; 
+}
+
+/* Specific background for index page */
+#index-page {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('./images/mountfuji.jpg');
+  background-size: cover; /* Cover the entire area */
+  background-attachment: fixed; /* Fixed background for parallax effect */
+  width: 100%;
+  height: 100%; /* Ensure the section takes full height */
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 8px 20px;
+  border-radius: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.logo-weather-container {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 8px;
+}
+
+.weather-text {
+  font-size: 20px;
+}
+
+/* Button Container Style */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin-top: 7px;
+}
+
+/* Base style for navigation buttons */
+.nav-button {
+  width: 150px; /* Set a specific width */
+  background-color: transparent; /* Default background color */
+  color: #7a9ffa; /* Text color */
+  border: none; /* No border */
+  padding: 8px; /* Padding */
+  text-align: center; /* Centered text */
+  text-decoration: none; /* No underline */
+  display: inline-block; /* Display inline-block for spacing */
+  font-size: 20px; /* Font size */
+  margin: 4px; /* Margin for spacing */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+  border-radius: 5px; /* Set border-radius for rounded corners */
+}
+
+/* Hover effect */
+.nav-button:hover {
+  background-color: #7a9ffa; /* Change background on hover */
+  color: white;
+}
+
+/* Intro */
+.intro-container {
+  text-align: left;
+  margin: 190px 190px;
+  max-width: 800px;
+  margin-top: 300px;
+  margin-left: 300px;
+
+}
+
+.intro-container h1 {
+  font-size: 32px;
+  color: #0066cc;
+  margin-top: 0px; /* Reduced space from top */
+}
+
+.intro-container p {
+  font-size: 18px;
+  margin-bottom: 400px;
+}
+
+/* Top Places */
+#index-page #top-places {
+  text-align: center;
+  margin-top: 50px;
+  padding: 90px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ddd;
+}
+
+#index-page #top-places h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+#index-page .places-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+#index-page .place {
+  cursor: pointer;
+  width: 500px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+#index-page .place img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+#index-page .place p {
+  margin-top: 5px;
+  font-size: 1.1em;
+  color: #333;
+}
+
+/* Hover effect for place items */
+#index-page .place:hover {
+  transform: scale(1.05);
+}
+
+/********End of index page**********/
+
+/********Start of country page**********/
+
+/* Weather Card */
+#weather-card {
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for the weather card */
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 500px;
+  margin: 100px auto; /* Center the card */
+  margin-bottom: 70px;
+}
+
+.weather-icon {
+  width: 64px; /* Adjust size */
+  height: auto; /* Maintain aspect ratio */
+  transition: transform 0.3s ease; /* Smooth effect on hover */
+}
+
+.temperature {
+  font-size: 36px;
+  font-weight: 700;
+  color: #ff5733;
+}
+
+.condition {
+  font-size: 18px;
+  color: #555;
+}
+
+.additional-info p {
+  font-size: 16px;
+  color: #777;
+}
+
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* Center the modal */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%; /* Adjust width as needed */
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center; /* Center all content inside the modal */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#modal-image {
+  max-width: 100%; /* Fit image within container width */
+  max-height: 500px; /* Set max height */
+  object-fit: contain; /* Maintain aspect ratio */
+  border-radius: 8px;
+  margin: 0 auto; /* Center the image horizontally */
+  display: block; /* Center-align as a block element */
+  margin-bottom: 10px;
+}
+
+#modal-description {
+  font-size: 16px; /* Set font size */
+  text-align: left; /* Align text to left */
+}
+
+/* Japan-specific Background */
+#japan-main {
+  background-image: url('./images/japanbackground.jpg'); /* Replace with your specific image path */
+  background-size: cover; /* Ensures the image covers the entire page */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  min-height: 100vh; /* Ensures the container covers the full height of the viewport */
+  padding: 20px; /* Optional: Adds padding around the content */
+  margin-bottom: 100px;
+}
+
+/* Japan-specific Background */
+#maldives-main {
+  background-image: url('./images/maldives.jpg'); /* Replace with your specific image path */
+  background-size: cover; /* Ensures the image covers the entire page */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  min-height: 100vh; /* Ensures the container covers the full height of the viewport */
+  padding: 20px; /* Optional: Adds padding around the content */
+  margin-bottom: 100px;
+}
+
+/* Greece-specific Background */
+#greece-main {
+  background-image: url('./images/greecee.jpeg'); /* Replace with your specific image path */
+  background-size: cover; /* Ensures the image covers the entire page */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  min-height: 100vh; /* Ensures the container covers the full height of the viewport */
+  padding: 20px; /* Optional: Adds padding around the content */
+  margin-bottom: 100px;
+}
+
+/* Korea-specific Background */
+#korea-main {
+  background-image: url('./images/koreaaa.jpg'); /* Replace with your specific image path */
+  background-size: cover; /* Ensures the image covers the entire page */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  min-height: 100vh; /* Ensures the container covers the full height of the viewport */
+  padding: 20px; /* Optional: Adds padding around the content */
+  margin-bottom: 90px;
+}
+
+/* Switzerland-specific Background */
+#switzerland-main {
+  background-image: url('./images/swit.jpg'); /* Replace with your specific image path */
+  background-size: cover; /* Ensures the image covers the entire page */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  min-height: 100vh; /* Ensures the container covers the full height of the viewport */
+  padding: 20px; /* Optional: Adds padding around the content */
+  margin-bottom: 130px;
+}
+
+/* NewZealand-specific Background */
+#newzealand-main {
+  background-image: url('./images/newzelandsss.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  min-height: 100vh; 
+  padding: 20px; 
+  margin-bottom: 50px;
+}
+
+.clothing-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #9fcdff; 
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600; 
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  display: inline-flex; 
+  align-items: center; 
+}
+
+.clothing-button:hover {
+  background-color: #93c7ff; 
+  transform: scale(1.05); 
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.clothing-button img {
+  margin-right: 8px; 
+  width: 100px; 
+  height: auto; 
+
+}
+
+/* Places to Visit */
+#places-to-visit {
+  text-align: center; 
+  padding: 20px; 
+  margin-top: 50px;
+}
+
+#places-to-visit h3 {
+  margin-top: 100px; 
+  margin-bottom: 20px; 
+  font-size: 32px; 
+  font-weight: bold; 
+  color: #333; 
+}
+
+.places-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 90px;
+  margin-top: 10px;
+}
+
+.place-item {
+  max-width: 500px;
+  text-align: center;
+}
+
+.place-image {
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.place-image:hover {
+  transform: scale(1.05);
+}
+
+.place-description {
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 0px;
+}
+
+/* Back Button Styling */
+.back-button {
+  display: block;
+  margin: 80px auto; 
+  padding: 10px 35px;
+  font-size: 20px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+}
+
+.back-button:hover {
+  background-color: #004a99;
+}
+
+#itinerary {
+  background-image: url('./images/snoopy.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  min-height: 100%; 
+  height: 100%;
+}
+
+/* Main Wrapper Styles */
+.mainWrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: 90px auto;
+  padding: 100px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  height: 100%;
+  margin-top: 150px;
+  background-color: #ebd9ff;
+
+}
+
+.mainWrapper h1 {
+  font-size: 1.75rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="time"],
+.form-group textarea {
+  width: 600px; 
+  height: 30px; 
+  padding: 8px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  font-size: 16px; 
+}
+
+/* Styling for textarea */
+textarea {
+  width: 400px; 
+  height: 150px; 
+  padding: 8px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  font-size: 16px; 
+  resize: vertical; 
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+
+/* Saved Entries List */
+#savedEntriesList {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 1.5rem;
+  max-height: 200px; 
+  overflow-y: auto; 
+  border: 1px solid #ddd; 
+  border-radius: 4px; 
+  background-color: #fff; 
+  width: 50%;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 30px;
+
+}
+
+#savedEntriesList li {
+  padding: 0.5rem; 
+  border-bottom: 1px solid #e0e0e0; 
+  margin: 0 auto; 
+  background-color: #f8f9fb;
+}
+
+#savedEntriesList li:last-child {
+  border-bottom: none; 
+}
+
+#savedEntriesList li:hover {
+  background-color: #e9e9e9; 
+}
+
+/* File Content Display */
+#fileView {
+  margin-top: 20px;
+  padding: 1rem;
+  background-color: #f4f7f6;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 40%;
+  margin: auto;
+}
+
+#fileView h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+#fileContentDisplay {
+  padding: 0; 
+  margin: 0; 
+  line-height: 1; 
+  white-space: pre-wrap; 
+  word-spacing: 0; 
+  letter-spacing: 0; 
+  font-size: 1rem; 
+  color: #333; 
+  line-height: 0;
+}
+
+.action-button-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  flex-wrap: wrap; 
+  max-width: 650px; 
+  margin: 0 auto; 
+  gap: 10px; 
+}
+
+/* Styling for action buttons */
+.action-button {
+  width: 150px;
+  background-color: #b4a3ff;
+  color: #fff;
+  border: none;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 5px;
+}
+
+/* Hover effect for action buttons */
+.action-button:hover {
+  background-color: white;
+  color: #b4a3ff
+}
